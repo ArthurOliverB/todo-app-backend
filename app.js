@@ -6,7 +6,10 @@ const cors = require('cors')
 const task = require('./routes/task.route')
 
 // DB
-mongoose.connect('mongodb://localhost:27017/todos', {useNewUrlParser: true});
+
+const dbUrl = process.env.MONGOLAB_URI? process.env.MONGOLAB_URI : 'mongodb://localhost:27017/todos'
+
+mongoose.connect(dbUrl, {useNewUrlParser: true});
 let db = mongoose.connection
 
 db.on('error', console.error.bind(console, 'connection error:'));
