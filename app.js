@@ -7,7 +7,7 @@ const task = require('./routes/task.route')
 
 // DB
 
-const dbUrl = process.env.MONGOLAB_URI? process.env.MONGOLAB_URI : 'mongodb://localhost:27017/todos'
+const dbUrl = "mongodb://todoapp:todoapp1@ds149365.mlab.com:49365/heroku_z5x3pdtx"
 
 mongoose.connect(dbUrl, {useNewUrlParser: true});
 let db = mongoose.connection
