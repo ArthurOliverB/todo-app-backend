@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use('/tasks', task)
 
 
-const porta = 4000
+const porta = 80
 app.listen(porta, function() {
     console.log(`Backend rodando na porta ${porta}`);
 })
