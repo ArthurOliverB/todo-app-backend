@@ -20,8 +20,11 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}));
 app.use('/tasks', task)
 
+app.use('/ping', (req, res) => {
+    res.send('pong')
+})
 
-const porta = 80
+const porta = 4000
 app.listen(porta, function() {
     console.log(`Backend rodando na porta ${porta}`);
 })
