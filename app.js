@@ -7,7 +7,7 @@ const task = require('./routes/task.route')
 
 // DB
 
-const dbUrl = "mongodb://todoapp:todoapp1@ds149365.mlab.com:49365/heroku_z5x3pdtx"
+const dbUrl = process.env.MONGODB_URI
 
 mongoose.connect(dbUrl, {useNewUrlParser: true});
 let db = mongoose.connection
@@ -19,12 +19,3 @@ app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}));
 app.use('/tasks', task)
-
-app.use('/ping', (req, res) => {
-    res.send(process.env.MONGODB_URI)
-})
-
-const porta = process.env.PORT || 5000
-app.listen(porta, function() {
-    console.log(` ATT Backend rodando na porta ${porta}`);
-})
