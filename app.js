@@ -24,7 +24,7 @@ app.use('/ping', (req, res) => {
     res.send('pong')
 })
 
-const porta = 4000
+const porta = process.env.PORT || 5000
 app.listen(porta, function() {
     console.log(` ATT Backend rodando na porta ${porta}`);
 })
