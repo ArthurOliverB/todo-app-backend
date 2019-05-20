@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use('/tasks', task)
 
 app.use('/ping', (req, res) => {
-    res.send('pong')
+    res.send(process.env.MONGODB_URI)
 })
 
 const porta = process.env.PORT || 5000
